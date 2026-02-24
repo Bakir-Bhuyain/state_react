@@ -12,7 +12,7 @@ export default function Bowler(){
             useOver(ballDone)
             // const done = ball + 1;
             // useBall(ballDone)
-(done)
+// (done)
       }
 
 
