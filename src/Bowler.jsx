@@ -1,15 +1,15 @@
 import {  useState } from "react"
 
 export default function Bowler(){
-      const [over, useOver] = useState(0);
-      const [ball, useBall] = useState(0);
+      const [over, setOver] = useState(0);
+      const [ball, setBall] = useState(0);
       const bowlerBall =() =>{
             const newBall = ball + 1;
-            useBall(newBall);
+            setBall(newBall);
       }
       const overDone = ()=>{
             const ballDone = over + 1;
-            useOver(ballDone)
+            setOver(ballDone)
             // const done = ball + 1;
             // useBall(ballDone)
 // (done)

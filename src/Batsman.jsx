@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function handleBatsman(){
+export default function Batsman(){
       const [runs, setRuns] = useState(0);
       const [sixes, setSixes]= useState(0);
       const handleBatsmanRuns = ()=>{
