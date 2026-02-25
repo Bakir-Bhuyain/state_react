@@ -2,30 +2,56 @@ import './App.css'
 import Batsman from'./Batsman'
 import Counter from './counter'
 import Bowler from './Bowler'
+import Users from './Users'
+import { Suspense } from 'react'
+import Friends from './Friends'
+
+
+const fetchFriends = async()=>{
+  const res = await fetch('https://jsonplaceholder.typicode.com/users')
+  return res.json()
+}
 
 function App() {
 
-  function handleClick() {
-    alert('i am clicked')
-  }
+  const friendsPromise = fetchFriends()
 
-  const handleClick3 =() =>{
-    alert('handle click 3')
-  }
 
-  const handleAdd5 = (num) =>{
-    const newNumber = num + 5;
-    alert(newNumber)
-  }
+
+
+
+  // function handleClick() {
+  //   alert('i am clicked')
+  // }
+
+  // const handleClick3 =() =>{
+  //   alert('handle click 3')
+  // }
+
+  // const handleAdd5 = (num) =>{
+  //   const newNumber = num + 5;
+  //   alert(newNumber)
+  // }
 
   return (
     <>
       <h3>Vite + React</h3>
+
+
+      <Suspense fallback={<h3>frien ds are coming for treat</h3>}>
+      <Friends friendsPromise={friendsPromise}></Friends>
+      </Suspense>
+
+
+
+
+
+      <Users></Users>
       <Bowler></Bowler>
       <Batsman></Batsman>
       <Counter></Counter>
-      <button onClick={handleClick}>Click me</button>
-      <button onClick={handleClick3}>Click me</button>
+      {/* <button onClick={handleClick}>Click me</button>
+      <button onClick={handleClick3}>Click me</button> */}
       {/* wrapping with the arrow function */}
       <button onClick={()=> handleAdd5(10)}>Click me</button>
       <button onClick={() => alert('click 4')}>Click me</button>
